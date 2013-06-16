@@ -6,4 +6,3 @@ from web import ctx as Context
 from dynamic.core.genericmodel  import GenericModel as Object
 from dynamic.core.mongodb       import MongoDb      as MongoDB
 Logger = logging.getLogger ('')
-Context.RootDirectory = os.path.dirname(__file__) + "/"

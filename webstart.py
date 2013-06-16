@@ -1,4 +1,4 @@
-import web, types
+import web, types, os
 from urls import url_mappings
 from common import Templates, MongoDB, Object, Context
 from dynamic.authentication.SessionManager import EstablishSession
@@ -11,12 +11,14 @@ def internal_error():
 	return web.internalerror (Templates.errors.internal_error())
 
 def initialize_environment():
-	Context.Config     = GetConfigurations ('CodeJedi.cfg')
-	Context['DB']      = MongoDB (Context.Config.getDB().getDB(), Context.Config.getDB().getHost(), int(Context.Config.getDB().getPort()))
-	Context['Cookies'] = web.cookies()
-	Context.Request    = web.input()
-	Context.SetCookie  = web.setcookie
-	Context.Redirect   = web.seeother
+	Context.Config      = GetConfigurations ('CodeJedi.cfg')
+	Context['DB']       = MongoDB ()
+	Context['Cookies']  = web.cookies()
+	Context.Request     = web.input()
+	Context.SetCookie   = web.setcookie
+	Context.Redirect    = web.seeother
+	Context.ProblemDir  = "Submissions/Problems/"
+	Context.SolutionDir = "Submissions/Solutions/"
 	EstablishSession()
 	web.template.Template.globals['Session'] = Context.User
 
