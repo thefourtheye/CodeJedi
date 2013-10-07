@@ -1,146 +1,147 @@
 $def with (Message, isError)
 $var pageheading: Submit new problem
 $var pagesubheading:
+
 $if Message is None and isError is None:
-	<link href="/static/bootstrap-fileupload/bootstrap-fileupload.css" rel="stylesheet" />
-	<script src="/static/bootstrap-fileupload/bootstrap-fileupload.js"></script>
-	<script src="/static/select2/select2.js"></script>
-	<link href="/static/select2/select2.css" rel="stylesheet"/>
-	<script type="text/javascript">
-		jQuery.noConflict();
-		jQuery(document).ready(function() {
-			jQuery("#Category").select2   ({ 
-														tags:["Adhoc", "Dynamic Programming", "Geomtery", "Math", "Brute Force", 
-														"Implementation", "Search", "Tree", "Greedy", "Data Structures", "Sorting"],
-														tokenSeparators: [",", " "]
-													 });
-	});
-	</script>
-	<form class="form-horizontal" method="POST" enctype="multipart/form-data">
+    <link href="/static/bootstrap-fileupload/bootstrap-fileupload.css" rel="stylesheet" />
+    <script src="/static/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+    <script src="/static/select2/select2.js"></script>
+    <link href="/static/select2/select2.css" rel="stylesheet"/>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function() {
+            jQuery("#Category").select2   ({ 
+                tags:["Adhoc", "Dynamic Programming", "Geomtery", "Math", "Brute Force", 
+                    "Implementation", "Search", "Tree", "Greedy", "Data Structures", "Sorting"],
+                        tokenSeparators: [",", " "]
+            });
+        });
+    </script>
+    <form class="form-horizontal" method="POST" enctype="multipart/form-data">
 
-		<div class="control-group">
-			<label class="control-label" for="ProblemName">Problem Name</label>
-			<div class="controls">
-				<input id="ProblemName" name="ProblemName" class="input-xxlarge" />
-			</div>
-		</div>
+        <div class="control-group">
+            <label class="control-label" for="ProblemName">Problem Name</label>
+            <div class="controls">
+                <input id="ProblemName" name="ProblemName" class="input-xxlarge" type="text" required />
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label class="control-label" for="ProblemDescription">Problem Description</label>
-			<div class="controls">
-				<div class="fileupload fileupload-new" data-provides="fileupload">
-					<div class="input-append">
-						<div class="uneditable-input span6">
-							<i class="icon-file fileupload-exists"></i>
-							<span class="fileupload-preview"></span>
-						</div>
-						<span class="btn btn-file">
-							<span class="fileupload-new">Select file</span>
-							<span class="fileupload-exists">Change</span>
-							<input type="file" id="ProblemDescription" name="ProblemDescription" required/>
-						</span>
-						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="control-group">
+            <label class="control-label" for="ProblemDescription">Problem Description</label>
+            <div class="controls">
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="input-append">
+                        <div class="uneditable-input span6">
+                            <i class="icon-file fileupload-exists"></i>
+                            <span class="fileupload-preview"></span>
+                        </div>
+                        <span class="btn btn-file">
+                            <span class="fileupload-new">Select file</span>
+                            <span class="fileupload-exists">Change</span>
+                            <input type="file" id="ProblemDescription" name="ProblemDescription" required/>
+                        </span>
+                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label class="control-label" for="Editorial">Editorial</label>
-			<div class="controls">
-				<div class="fileupload fileupload-new" data-provides="fileupload">
-					<div class="input-append">
-						<div class="uneditable-input span6">
-							<i class="icon-file fileupload-exists"></i>
-							<span class="fileupload-preview"></span>
-						</div>
-						<span class="btn btn-file">
-							<span class="fileupload-new">Select file</span>
-							<span class="fileupload-exists">Change</span>
-							<input type="file" id="Editorial" name="Editorial" required/>
-						</span>
-						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="control-group">
+            <label class="control-label" for="Editorial">Editorial</label>
+            <div class="controls">
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="input-append">
+                        <div class="uneditable-input span6">
+                            <i class="icon-file fileupload-exists"></i>
+                            <span class="fileupload-preview"></span>
+                        </div>
+                        <span class="btn btn-file">
+                            <span class="fileupload-new">Select file</span>
+                            <span class="fileupload-exists">Change</span>
+                            <input type="file" id="Editorial" name="Editorial" required/>
+                        </span>
+                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label class="control-label" for="SmallTestCaseFile">Preliminary testcases</label>
-			<div class="controls">
-				<div class="fileupload fileupload-new" data-provides="fileupload">
-					<div class="input-append">
-						<div class="uneditable-input span6">
-							<i class="icon-file fileupload-exists"></i>
-							<span class="fileupload-preview"></span>
-						</div>
-						<span class="btn btn-file">
-							<span class="fileupload-new">Select file</span>
-							<span class="fileupload-exists">Change</span>
-							<input type="file" id="SmallTestCaseFile" name="SmallTestCaseFile" required/>
-						</span>
-						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="control-group">
+            <label class="control-label" for="SmallTestCaseFile">Preliminary testcases</label>
+            <div class="controls">
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="input-append">
+                        <div class="uneditable-input span6">
+                            <i class="icon-file fileupload-exists"></i>
+                            <span class="fileupload-preview"></span>
+                        </div>
+                        <span class="btn btn-file">
+                            <span class="fileupload-new">Select file</span>
+                            <span class="fileupload-exists">Change</span>
+                            <input type="file" id="SmallTestCaseFile" name="SmallTestCaseFile" required/>
+                        </span>
+                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label class="control-label" for="BigTestCaseFile">System testcases</label>
-			<div class="controls">
-				<div class="fileupload fileupload-new" data-provides="fileupload">
-					<div class="input-append">
-						<div class="uneditable-input span6">
-							<i class="icon-file fileupload-exists"></i>
-							<span class="fileupload-preview"></span>
-						</div>
-						<span class="btn btn-file">
-							<span class="fileupload-new">Select file</span>
-							<span class="fileupload-exists">Change</span>
-							<input type="file" id="BigTestCaseFile" name="BigTestCaseFile" required/>
-						</span>
-						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="control-group">
+            <label class="control-label" for="BigTestCaseFile">System testcases</label>
+            <div class="controls">
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="input-append">
+                        <div class="uneditable-input span6">
+                            <i class="icon-file fileupload-exists"></i>
+                            <span class="fileupload-preview"></span>
+                        </div>
+                        <span class="btn btn-file">
+                            <span class="fileupload-new">Select file</span>
+                            <span class="fileupload-exists">Change</span>
+                            <input type="file" id="BigTestCaseFile" name="BigTestCaseFile" required/>
+                        </span>
+                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label class="control-label" for="Category">Category</label>
-			<div class="controls">
-				<input id="Category" name="Category" class="input-xxlarge" />
-			</div>
-		</div>
+        <div class="control-group">
+            <label class="control-label" for="Category">Category</label>
+            <div class="controls">
+                <input id="Category" name="Category" class="input-xxlarge" type="text" required/>
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label class="control-label" for="Practice">Practice Problem</label>
-			<div class="controls">
-				<input id="Category" name="Practice" type="checkbox" />
-			</div>
-		</div>
+        <div class="control-group">
+            <label class="control-label" for="Practice">Practice Problem</label>
+            <div class="controls">
+                <input id="Category" name="Practice" type="checkbox" />
+            </div>
+        </div>
 
-		<div class="form-actions">
-			<button type="submit" class="btn btn-primary pull-right">Submit Problem</button>
-		</div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary pull-right">Submit Problem</button>
+        </div>
 
-		<input type="hidden" value="$:Session.getCSRFToken()" id="CSRFToken" name="CSRFToken" />
+        <input type="hidden" value="$:Session.getCSRFToken()" id="CSRFToken" name="CSRFToken" />
 
-	</form>
+    </form>
 $else:
-	<div class="row">
-		<div class="span2"></div>
-		<div class="span8">
-			$if isError:
-				<div class="alert alert-error">
-					<h2 class="text-center">Error!</h2>
-					<ol>
-						<div style="padding: 20px">$:Message</div>
-					</ol>
-				</div>
-			$else:
-				<div class="alert alert-success">
-					<h2 class="text-center">Success!!!</h2>
-					<div style="padding: 20px">$:Message</div>
-				</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="span2"></div>
+        <div class="span8">
+            $if isError:
+                <div class="alert alert-error">
+                    <h2 class="text-center">Error!</h2>
+                    <ol>
+                        <div style="padding: 20px">$:Message</div>
+                    </ol>
+                </div>
+            $else:
+                <div class="alert alert-success">
+                    <h2 class="text-center">Success!!!</h2>
+                    <div style="padding: 20px">$:Message</div>
+                </div>
+        </div>
+    </div>
